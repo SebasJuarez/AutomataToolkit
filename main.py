@@ -68,7 +68,7 @@ def process_file(file_path):
                     print(f"NFA guardado en {nfa_output_file}")
 
                 # Dibuja el AFN generado
-                converter.draw_nfa(nfa, output_file=f"AFN{expression_count}")
+                converter.draw_nfa(nfa, output_file=f"Resultados/AFN{expression_count}")
                 print(f"AFN guardado como AFN{expression_count}.png")
 
                 # Convertir AFN a AFD utilizando Subconjuntos
@@ -99,7 +99,7 @@ def process_file(file_path):
                     print(f"AFD guardado en {afd_output_file}")
 
                 # Dibuja el AFD generado antes de la minimización
-                afd_converter.draw_afd(output_file=f"AFD{expression_count}")
+                afd_converter.draw_afd(output_file=f"Resultados/AFD{expression_count}")
                 print(f"AFD guardado como AFD{expression_count}.png")
 
                 # Minimizar el AFD
@@ -116,7 +116,7 @@ def process_file(file_path):
                     print(f"AFD minimizado guardado en {min_afd_output_file}")
                 
                 # Dibuja el AFD minimizado
-                min_afd_converter.draw_minimized_afd(min_dfa, output_file=f"MinimizedAFD{expression_count}")
+                min_afd_converter.draw_minimized_afd(min_dfa, output_file=f"Resultados/MinimizedAFD{expression_count}")
                 print(f"AFD Minimizado guardado como MinimizedAFD{expression_count}.png")
                 
                 # Procesar las cadenas de simulación para el AFD minimizado

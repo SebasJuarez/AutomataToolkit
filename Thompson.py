@@ -154,18 +154,14 @@ class Thompson:
             else:
                 print(f"'{input_string}' NO es aceptada")
     
-    # Nueva función para dibujar el AFN
     def draw_nfa(self, nfa, output_file='AFN'):
 
         keys, states, start, end = nfa
-
-        # Asegúrate de que 'end' sea un conjunto
         if not isinstance(end, set):
             end = {end}
         
         dot = Digraph()
 
-        # Añadir los nodos (estados)
         for i, state in enumerate(states):
             shape = 'doublecircle' if i in end else 'circle'
             dot.node(str(i), shape=shape)
@@ -179,9 +175,7 @@ class Thompson:
                 else:
                     dot.edge(str(i), str(next_state), label=symbol)
 
-        # Estado inicial
         dot.node('start', shape='point')
         dot.edge('start', str(start))
 
-        # Guardar el gráfico como archivo PNG
         dot.render(output_file, format='png', cleanup=True)
