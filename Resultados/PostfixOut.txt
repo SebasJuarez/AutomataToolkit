@@ -1,0 +1,9 @@
+Expresión: (a*|b*)c
+Postfix: a*b*|c.
+
+Expresión: (a*|b*)c
+Postfix: a*b*|c.
+
+Expresión: (a*|b*)c
+Postfix: a*b*|c.
+

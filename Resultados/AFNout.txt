@@ -1,0 +1,135 @@
+Expresión: (a*|b*)c
+Estados:
+Estado 0
+Estado 1
+Estado 2
+Estado 3
+Estado 4
+Estado 5
+Estado 6
+Estado 7
+Estado 8
+Estado 9
+Estado 10
+Estado 11
+
+Símbolos:
+b
+a
+c
+ε
+
+Estado Inicial:
+8
+
+Estado de Aceptación:
+11
+
+Transiciones:
+Estado 0 -> Estado 1 con símbolo 'a'
+Estado 1 -> Estado 0 con símbolo 'ε'
+Estado 1 -> Estado 3 con símbolo 'ε'
+Estado 2 -> Estado 0 con símbolo 'ε'
+Estado 2 -> Estado 3 con símbolo 'ε'
+Estado 3 -> Estado 9 con símbolo 'ε'
+Estado 4 -> Estado 5 con símbolo 'b'
+Estado 5 -> Estado 4 con símbolo 'ε'
+Estado 5 -> Estado 7 con símbolo 'ε'
+Estado 6 -> Estado 4 con símbolo 'ε'
+Estado 6 -> Estado 7 con símbolo 'ε'
+Estado 7 -> Estado 9 con símbolo 'ε'
+Estado 8 -> Estado 2 con símbolo 'ε'
+Estado 8 -> Estado 6 con símbolo 'ε'
+Estado 9 -> Estado 10 con símbolo 'ε'
+Estado 10 -> Estado 11 con símbolo 'c'
+
+Expresión: (a*|b*)c
+Estados:
+Estado 0
+Estado 1
+Estado 2
+Estado 3
+Estado 4
+Estado 5
+Estado 6
+Estado 7
+Estado 8
+Estado 9
+Estado 10
+Estado 11
+
+Símbolos:
+c
+b
+ε
+a
+
+Estado Inicial:
+8
+
+Estado de Aceptación:
+11
+
+Transiciones:
+Estado 0 -> Estado 1 con símbolo 'a'
+Estado 1 -> Estado 0 con símbolo 'ε'
+Estado 1 -> Estado 3 con símbolo 'ε'
+Estado 2 -> Estado 0 con símbolo 'ε'
+Estado 2 -> Estado 3 con símbolo 'ε'
+Estado 3 -> Estado 9 con símbolo 'ε'
+Estado 4 -> Estado 5 con símbolo 'b'
+Estado 5 -> Estado 4 con símbolo 'ε'
+Estado 5 -> Estado 7 con símbolo 'ε'
+Estado 6 -> Estado 4 con símbolo 'ε'
+Estado 6 -> Estado 7 con símbolo 'ε'
+Estado 7 -> Estado 9 con símbolo 'ε'
+Estado 8 -> Estado 2 con símbolo 'ε'
+Estado 8 -> Estado 6 con símbolo 'ε'
+Estado 9 -> Estado 10 con símbolo 'ε'
+Estado 10 -> Estado 11 con símbolo 'c'
+
+Expresión: (a*|b*)c
+Estados:
+Estado 0
+Estado 1
+Estado 2
+Estado 3
+Estado 4
+Estado 5
+Estado 6
+Estado 7
+Estado 8
+Estado 9
+Estado 10
+Estado 11
+
+Símbolos:
+b
+a
+c
+ε
+
+Estado Inicial:
+8
+
+Estado de Aceptación:
+11
+
+Transiciones:
+Estado 0 -> Estado 1 con símbolo 'a'
+Estado 1 -> Estado 0 con símbolo 'ε'
+Estado 1 -> Estado 3 con símbolo 'ε'
+Estado 2 -> Estado 0 con símbolo 'ε'
+Estado 2 -> Estado 3 con símbolo 'ε'
+Estado 3 -> Estado 9 con símbolo 'ε'
+Estado 4 -> Estado 5 con símbolo 'b'
+Estado 5 -> Estado 4 con símbolo 'ε'
+Estado 5 -> Estado 7 con símbolo 'ε'
+Estado 6 -> Estado 4 con símbolo 'ε'
+Estado 6 -> Estado 7 con símbolo 'ε'
+Estado 7 -> Estado 9 con símbolo 'ε'
+Estado 8 -> Estado 2 con símbolo 'ε'
+Estado 8 -> Estado 6 con símbolo 'ε'
+Estado 9 -> Estado 10 con símbolo 'ε'
+Estado 10 -> Estado 11 con símbolo 'c'
+
