@@ -1,5 +1,6 @@
 from Thompson import *
 from collections import deque
+from graphviz import Digraph
 
 class Subconjuntos:
     def __init__(self, nfa_states, nfa_symbols, nfa_transitions, nfa_start_state, nfa_accept_states, epsilon="\u03b5"):
@@ -102,6 +103,23 @@ class Subconjuntos:
                     print(f"'{input_string}' SÍ es aceptada")
                 else:
                     print(f"'{input_string}' NO es aceptada (estado final no es de aceptación)")
+
+    def draw_afd(self, output_file='afd_diagram'):
+        dot = Digraph(comment='AFD')
+
+        # Agregar nodos
+        for state in self.afd_states:
+            shape = 'doublecircle' if state in self.afd_accept_states else 'circle'
+            dot.node(str(state), shape=shape)
+        
+        # Agregar transiciones
+        for state, transitions in self.afd_transitions.items():
+            for symbol, next_state in transitions.items():
+                dot.edge(str(state), str(next_state), label=symbol)
+
+        # Guardar y renderizar el archivo
+        dot.render(output_file, format='png')
+        print(f"AFD dibujado y guardado como {output_file}.png")
 
 class AFD:
     def __init__(self):

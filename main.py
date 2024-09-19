@@ -32,6 +32,8 @@ input_strings = ["ababbab", "aac", "babbab", "100001", "aabbab", "baba", "10101"
 def process_file(file_path):
     try:
         with open(file_path, 'r', encoding="utf-8") as file:
+            expression_count = 1  # Contador para los nombres de archivos de imágenes
+
             for line in file:
                 expression = line.strip()
                 print(f"\nProcesando la expresión: {expression}")
@@ -65,6 +67,10 @@ def process_file(file_path):
                     sys.stdout = sys.__stdout__
                     print(f"NFA guardado en {nfa_output_file}")
 
+                # Dibuja el AFN generado
+                converter.draw_nfa(nfa, output_file=f"AFN{expression_count}")
+                print(f"AFN guardado como AFN{expression_count}.png")
+
                 # Convertir AFN a AFD utilizando Subconjuntos
                 afd_converter = Subconjuntos(nfa_states, nfa_symbols, nfa_transitions, nfa_start_state, nfa_accept_states)
                 
@@ -73,7 +79,7 @@ def process_file(file_path):
                 # Procesar las cadenas de simulación usando el AFD
                 afd_converter.process_input(input_strings)
 
-                 # Crear objeto AFD y agregar estados, transiciones y demas
+                 # Crear objeto AFD y agregar estados, transiciones y demás
                 afd = AFD()
                 afd.add_states(dfa_states)
                 afd.add_symbols(dfa_symbols)
@@ -92,6 +98,10 @@ def process_file(file_path):
                     sys.stdout = sys.__stdout__
                     print(f"AFD guardado en {afd_output_file}")
 
+                # Dibuja el AFD generado antes de la minimización
+                afd_converter.draw_afd(output_file=f"AFD{expression_count}")
+                print(f"AFD guardado como AFD{expression_count}.png")
+
                 # Minimizar el AFD
                 min_afd_converter = AFDMinimizer()
                 min_dfa = min_afd_converter.minimizeAFD(dfa_symbols, dfa_transitions, dfa_start_state, dfa_accept_states)
@@ -105,8 +115,15 @@ def process_file(file_path):
                     sys.stdout = sys.__stdout__
                     print(f"AFD minimizado guardado en {min_afd_output_file}")
                 
+                # Dibuja el AFD minimizado
+                min_afd_converter.draw_minimized_afd(min_dfa, output_file=f"MinimizedAFD{expression_count}")
+                print(f"AFD Minimizado guardado como MinimizedAFD{expression_count}.png")
+                
                 # Procesar las cadenas de simulación para el AFD minimizado
                 min_afd_converter.process_input(input_strings, min_dfa)
+
+                # Incrementar contador de expresiones
+                expression_count += 1
 
     except FileNotFoundError:
         print(f"No se pudo encontrar el archivo {file_path}. Por favor, verifica la ruta.")

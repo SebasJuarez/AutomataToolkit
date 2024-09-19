@@ -1,3 +1,5 @@
+from graphviz import Digraph
+
 class AFDMinimizer:
 
     def __init__(self):
@@ -132,3 +134,22 @@ class AFDMinimizer:
                     print(f"'{input_string}' SÍ es aceptada")
                 else:
                     print(f"'{input_string}' NO es aceptada (estado final no es de aceptación)")
+
+    # Nueva función para dibujar el AFD minimizado
+    def draw_minimized_afd(self, minimized_dfa: tuple, output_file='minimized_afd_diagram'):
+        symbols, transitions, start, end = minimized_dfa
+        dot = Digraph(comment='AFD Minimizado')
+
+        # Agregar nodos
+        for state in transitions.keys():
+            shape = 'doublecircle' if state in end else 'circle'
+            dot.node(str(state), shape=shape)
+        
+        # Agregar transiciones
+        for state, trans in transitions.items():
+            for symbol, next_state in trans.items():
+                dot.edge(str(state), str(next_state), label=symbol)
+
+        # Guardar y renderizar el archivo
+        dot.render(output_file, format='png')
+        print(f"AFD Minimizado dibujado y guardado como {output_file}.png")
